@@ -76,4 +76,7 @@ INSERT INTO baseball_playoffs
     wins_cle, losses_cle, wins_cws, losses_cws, wins_det, losses_det, wins_min, losses_min, wins_kc, losses_kc,
     wins_hou, losses_hou, wins_laa, losses_laa, wins_oak, losses_oak, wins_sea, losses_sea, wins_tex, losses_tex)
 VALUES
-    ();
+    (11, 
+    1, 0, 0, 0, 0, 1, 0, 0, 0, 0,
+    1, 0, 0, 0, 0, 1, 0, 0, 1, 1,
+    );
