@@ -4,7 +4,7 @@ const CitiesService = {
   getAllCities(knex) {
     return knex.select('*').from('cities');
   },
-  getCityById(knex) {
+  getCityById(knex, id) {
     return knex
       .from('cities')
       .select('*')

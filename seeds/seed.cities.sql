@@ -105,8 +105,8 @@ VALUES
 INSERT INTO cities_users
     ( user_name, password, favorite_city, favorite_baseball )
 VALUES
-    ( 'geordo9', '$2a$10$Natlvnm84WWQxDRWwoZTxuftXsYsexzK5KdFs.T/2RYOMCa9Q/sF.', 'Philadelphia', 'Phillies' ),
-    ( 'gergsp', '$2a$10$Natlvnm84WWQxDRWwoZTxuftXsYsexzK5KdFs.T/2RYOMCa9Q/sF.', 'Boston', 'Red Sox'),
-    ( 'peted', '$2a$10$Natlvnm84WWQxDRWwoZTxuftXsYsexzK5KdFs.T/2RYOMCa9Q/sF.', 'Chicago', 'Cubs'),
-    ( 'armygeorge', '$2a$10$Natlvnm84WWQxDRWwoZTxuftXsYsexzK5KdFs.T/2RYOMCa9Q/sF.', 'New York', 'Yankees'),
-    ( 'kiazone', '$2a$10$Natlvnm84WWQxDRWwoZTxuftXsYsexzK5KdFs.T/2RYOMCa9Q/sF.', 'New York', 'Mets');
+    ( 'geordo9', '$2a$10$Natlvnm84WWQxDRWwoZTxuftXsYsexzK5KdFs.T/2RYOMCa9Q/sF.', '18', '5' ),
+    ( 'gergsp', '$2a$10$Natlvnm84WWQxDRWwoZTxuftXsYsexzK5KdFs.T/2RYOMCa9Q/sF.', '3', '16'),
+    ( 'peted', '$2a$10$Natlvnm84WWQxDRWwoZTxuftXsYsexzK5KdFs.T/2RYOMCa9Q/sF.', '4', '6'),
+    ( 'armygeorge', '$2a$10$Natlvnm84WWQxDRWwoZTxuftXsYsexzK5KdFs.T/2RYOMCa9Q/sF.', '16', '18'),
+    ( 'kiazone', '$2a$10$Natlvnm84WWQxDRWwoZTxuftXsYsexzK5KdFs.T/2RYOMCa9Q/sF.', '16', '3');
