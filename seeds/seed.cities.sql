@@ -1,6 +1,6 @@
 -- psql -U postgres -d cities -f seeds/seed.cities.sql
 
-TRUNCATE cities, baseball_teams, baseball_playoffs;
+TRUNCATE cities, baseball_teams, baseball_playoffs, cities_users;
 
 INSERT INTO cities
     ( id, city )
@@ -100,3 +100,13 @@ VALUES
     (28, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 2, 0, 1, 1, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 2, 1, 0, 0, 3, 1, 2, 1, 2, 2, 0, 4, 0, 0, 1, 1, 0, 0, 0, 0, 1, 3, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
     (29, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 2, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
     (30, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 1, 3, 2, 0, 0, 2, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+
+
+INSERT INTO cities_users
+    ( user_name, password, favorite_city, favorite_baseball )
+VALUES
+    ( 'geordo9', '$2a$10$Natlvnm84WWQxDRWwoZTxuftXsYsexzK5KdFs.T/2RYOMCa9Q/sF.', 'Philadelphia', 'Phillies' ),
+    ( 'gergsp', '$2a$10$Natlvnm84WWQxDRWwoZTxuftXsYsexzK5KdFs.T/2RYOMCa9Q/sF.', 'Boston', 'Red Sox'),
+    ( 'peted', '$2a$10$Natlvnm84WWQxDRWwoZTxuftXsYsexzK5KdFs.T/2RYOMCa9Q/sF.', 'Chicago', 'Cubs'),
+    ( 'armygeorge', '$2a$10$Natlvnm84WWQxDRWwoZTxuftXsYsexzK5KdFs.T/2RYOMCa9Q/sF.', 'New York', 'Yankees'),
+    ( 'kiazone', '$2a$10$Natlvnm84WWQxDRWwoZTxuftXsYsexzK5KdFs.T/2RYOMCa9Q/sF.', 'New York', 'Mets');
