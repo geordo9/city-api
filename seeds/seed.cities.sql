@@ -26,8 +26,8 @@ VALUES
     (19, 'Phoneix'),
     (20, 'Pittsburgh'),
     (21, 'Saint Louis'),
-    (21, 'San Diego'),
-    (22, 'San Francisco'),
+    (22, 'San Diego'),
+    (23, 'San Francisco'),
     (24, 'Seattle'),
     (25, 'Tampa Bay'),
     (26, 'Toronto'),
@@ -68,13 +68,7 @@ VALUES
     (30, 'Rangers', 8);
 
 INSERT INTO baseball_playoffs
-    ( id, 
-    wins_alt, losses_alt, wins_mia, losses_mia, wins_nym, losses_nym, wins_phi, losses_phi, wins_wsh, losses_wsh, 
-    wins_chc, losses_chc, wins_cin, losses_cin, wins_mil, losses_mil, wins_pit, losses_pit, wins_stl, losses_stl,
-    wins_ari, losses_ari, wins_col, losses_col, wins_lad, losses_lad, wins_sd, losses_sd, wins_sf, losses_sf,
-    wins_bal, losses_bal, wins_bos, losses_bos, wins_nyy, losses_nyy, wins_tb, losses_tb, wins_tor, losses_tor,
-    wins_cle, losses_cle, wins_cws, losses_cws, wins_det, losses_det, wins_min, losses_min, wins_kc, losses_kc,
-    wins_hou, losses_hou, wins_laa, losses_laa, wins_oak, losses_oak, wins_sea, losses_sea, wins_tex, losses_tex)
+    ( id, wins_atl, losses_atl, wins_mia, losses_mia, wins_nym, losses_nym, wins_phi, losses_phi, wins_wsh, losses_wsh, wins_chc, losses_chc, wins_cin, losses_cin, wins_mil, losses_mil, wins_pit, losses_pit, wins_stl, losses_stl, wins_ari, losses_ari, wins_col, losses_col, wins_lad, losses_lad, wins_sd, losses_sd, wins_sf, losses_sf, wins_bal, losses_bal, wins_bos, losses_bos, wins_nyy, losses_nyy, wins_tb, losses_tb, wins_tor, losses_tor, wins_cle, losses_cle, wins_cws, losses_cws, wins_det, losses_det, wins_min, losses_min, wins_kc, losses_kc, wins_hou, losses_hou, wins_laa, losses_laa, wins_oak, losses_oak, wins_sea, losses_sea, wins_tex, losses_tex)
 VALUES
     (1, 0, 0, 0, 1, 1, 1, 0, 1, 0, 0, 1, 1, 1, 0, 0, 0, 2, 0, 1, 3, 0, 1, 1, 0, 1, 2, 0, 1, 0, 2, 0, 0, 0, 0, 1, 3, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 1, 0, 0, 3, 2, 0, 0, 1, 0, 0, 0, 0, 0),
     (2, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),

@@ -23,6 +23,7 @@
     "migrate": "^1.6.2",
     "morgan": "^1.9.1",
     "pg": "^7.8.1",
+    "postgrator": "^3.9.0",
     "xss": "^1.0.3"
   },
   "devDependencies": {
