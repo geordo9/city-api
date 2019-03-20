@@ -14,6 +14,7 @@ const UsersService = {
   },
 
   insertUser(db, newUser) {
+    console.log('insert running');
     return db
       .insert(newUser)
       .into('cities_users')
