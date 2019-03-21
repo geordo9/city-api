@@ -50,4 +50,30 @@ usersRouter
       .catch(next);
   });
 
+usersRouter
+  .route('/users')
+  .get((req, res, next) => {
+    UsersService.getAllUsers(req.app.get('db'))
+      .then(resjson => res.json(resjson))
+      .catch(next);
+  });
+usersRouter
+  .route('/users/:user_id')
+  .get((req, res, next) => {
+    console.log(req.params);
+    const { user_id } = req.params;
+    UsersService.getUserById(req.app.get('db'), user_id)
+      .then(user => {
+        if(!user) {
+          return res.status(404).json({
+            error: { message : 'User not found'}
+          });
+        }
+        res.status(200).json(user);
+        console.log(user);
+        next();
+      })
+      .catch(next);
+  });
+
 module.exports = usersRouter;
