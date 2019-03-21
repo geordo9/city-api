@@ -9,7 +9,6 @@ const jsonBodyParser = express.json();
 
 usersRouter
   .post('/users', jsonBodyParser, (req, res, next) => {
-    console.log('posting!');
     const { password, user_name, favorite_city } = req.body;  
     const fields = ['user_name', 'password', 'favorite_city'];
 
