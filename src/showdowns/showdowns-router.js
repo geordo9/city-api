@@ -7,7 +7,7 @@ const ShowdownRouter = express.Router();
 const jsonBodyParser = express.json();
 
 ShowdownRouter
-  .post('/users', jsonBodyParser, (req, res, next) => {
+  .post('/showdowns', jsonBodyParser, (req, res, next) => {
     const { total_wins, total_losses, user_baseball_team, opp_baseball_team, wins_baseball, losses_baseball } = req.body;  
     const fields = ['total_wins', 'total_losses', 'user_baseball_team', 'opp_baseball_team', 'wins_baseball', 'losses_baseball'];
 
@@ -48,7 +48,7 @@ ShowdownRouter
   .route('/showdowns/:showdown_id')
   .get((req, res, next) => {
     const { showdown_id } = req.params;
-    ShowdownService.getUserById(req.app.get('db'), showdown_id)
+    ShowdownService.getShowdownById(req.app.get('db'), showdown_id)
       .then(showdown => {
         if(!showdown) {
           return res.status(404).json({
