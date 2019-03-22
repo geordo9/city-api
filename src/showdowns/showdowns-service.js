@@ -31,6 +31,12 @@ const ShowdownServices = {
       .returning('*')
       .then(([user]) => user);
   },
+  getUserShowdowns(db, user_pin) {
+    return db
+      .select('*')
+      .from('showdowns')
+      .where({user_pin});
+  }
 };
 
 module.exports = ShowdownServices;

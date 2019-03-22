@@ -61,6 +61,23 @@ ShowdownRouter
       })
       .catch(next);
   });
+ShowdownRouter
+  .route('/showdowns/user/:user_id')
+  .get((req, res, next) => {
+    const { user_id } = req.params;
+    ShowdownService.getUserShowdowns(req.app.get('db'), user_id)
+      .then(showdown => {
+        if(!showdown) {
+          return res.status(404).json({
+            error: { message : 'Showdowns for this user not found'}
+          });
+        }
+        res.status(200).json(showdown);
+        console.log(showdown);
+        next();
+      })
+      .catch(next);
+  });
 
 
 

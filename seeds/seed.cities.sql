@@ -115,4 +115,5 @@ INSERT INTO showdowns
     ( user_pin, user_total_wins, user_total_loses, user_baseball_team, opp_baseball_team, wins_baseball, losses_baseball )
 VALUES
     ( 1, 3, 2, 5, 12, 3, 2 ),
-    ( 2, 2, 2, 16, 18, 2, 2 );
+    ( 2, 2, 2, 16, 18, 2, 2 ),
+    ( 1, 1, 0, 5, 1, 1, 0 );
