@@ -1,6 +1,6 @@
 -- psql -U postgres -d cities -f seeds/seed.cities.sql
 
-TRUNCATE cities, baseball_teams, baseball_playoffs, cities_users;
+TRUNCATE cities, baseball_teams, baseball_playoffs, cities_users, showdowns;
 
 INSERT INTO cities
     ( id, city )
@@ -110,3 +110,9 @@ VALUES
     ( 'peted', '$2a$10$Natlvnm84WWQxDRWwoZTxuftXsYsexzK5KdFs.T/2RYOMCa9Q/sF.', '4', '6'),
     ( 'armygeorge', '$2a$10$Natlvnm84WWQxDRWwoZTxuftXsYsexzK5KdFs.T/2RYOMCa9Q/sF.', '16', '18'),
     ( 'kiazone', '$2a$10$Natlvnm84WWQxDRWwoZTxuftXsYsexzK5KdFs.T/2RYOMCa9Q/sF.', '16', '3');
+
+INSERT INTO showdowns
+    ( user_pin, user_total_wins, user_total_loses, user_baseball_team, opp_baseball_team, wins_baseball, losses_baseball )
+VALUES
+    ( 1, 3, 2, 5, 12, 3, 2 ),
+    ( 2, 2, 2, 16, 18, 2, 2 );
