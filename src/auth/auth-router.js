@@ -7,7 +7,7 @@ const { requireAuth } = require('../middleware/jwt-auth');
 const authRouter = express.Router();
 const bodyParser = express.json();
 
-authRouter.post('auth/login',bodyParser, (req, res, next) => {
+authRouter.post('/auth/login',bodyParser, (req, res, next) => {
   console.log('logging in!');
   const { user_name, password } = req.body;
   const loginUser = { user_name, password };

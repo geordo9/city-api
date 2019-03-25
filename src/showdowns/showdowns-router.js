@@ -8,8 +8,8 @@ const jsonBodyParser = express.json();
 
 ShowdownRouter
   .post('/showdowns', jsonBodyParser, (req, res, next) => {
-    const { total_wins, total_losses, user_baseball_team, opp_baseball_team, wins_baseball, losses_baseball } = req.body;  
-    const fields = ['total_wins', 'total_losses', 'user_baseball_team', 'opp_baseball_team', 'wins_baseball', 'losses_baseball'];
+    const { user_baseball_team, opp_baseball_team } = req.body;  
+    const fields = [ 'user_baseball_team', 'opp_baseball_team'];
 
     for (const field of fields){
       if (!req.body[field])
@@ -17,23 +17,33 @@ ShowdownRouter
           error: `Missing '${field}' in request body`
         });
     }
+    ShowdownService.getBaseballWins(req.app.get('db'), user_baseball_team, opp_baseball_team)
+      .then(wins => {
+        ShowdownService.getBaseballLosses(req.app.get('db'), user_baseball_team, opp_baseball_team)
+          .then(losses => {
+            const wins_baseball = ShowdownService.getWinsInt(wins, opp_baseball_team);
+            console.log(wins_baseball);
+            const losses_baseball = ShowdownService.getLossInt(losses, opp_baseball_team);
+            const newShowdown = {
+              user_total_wins: wins_baseball,
+              user_total_loses: losses_baseball,
+              user_baseball_team,
+              opp_baseball_team,
+              wins_baseball: wins_baseball,
+              losses_baseball: losses_baseball,
+              date_created: 'now()',
+            };
 
-    const newShowdown = {
-      user_total_wins: total_wins,
-      user_total_loses: total_losses,
-      user_baseball_team,
-      opp_baseball_team,
-      wins_baseball,
-      losses_baseball,
-      date_created: 'now()',
-    };
-    ShowdownService.insertUser(req.app.get('db'), newShowdown)
-      .then(showdown => {
-        res.status(201)
-          .location(path.posix.join(req.originalUrl, `/${showdown.id}`))
-          .json(showdown);
-      })
-          
+            newShowdown.user_pin = 1;
+            
+            ShowdownService.insertShowdown(req.app.get('db'), newShowdown)
+              .then(showdown => {
+                res.status(201)
+                  .location(path.posix.join(req.originalUrl, `/1/${showdown.id}`))
+                  .json(showdown);
+              });
+          });
+      })         
       .catch(next);
   });
 
@@ -58,6 +68,16 @@ ShowdownRouter
         res.status(200).json(showdown);
         console.log(showdown);
         next();
+      })
+      .catch(next);
+  })
+  .delete((req, res, next) => {
+    ShowdownService.deleteShowdown(
+      req.app.get('db'),
+      req.params.showdown_id
+    )
+      .then(() => {
+        res.status(204).end();
       })
       .catch(next);
   });
