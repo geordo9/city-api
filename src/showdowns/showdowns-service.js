@@ -233,7 +233,7 @@ const ShowdownServices = {
   getWinsInt(winsjson, oppTeamId) {
     switch(oppTeamId) {
     case 1:
-      return winsjson.wins_alt;
+      return winsjson.wins_atl;
     case 2:
       return winsjson.wins_mia;
     case 3:
@@ -300,7 +300,7 @@ const ShowdownServices = {
   getLossInt(lossjson, oppTeamId) {
     switch(oppTeamId) {
     case 1:
-      return lossjson.losses_alt;
+      return lossjson.losses_atl;
     case 2:
       return lossjson.losses_mia;
     case 3:

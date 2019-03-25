@@ -24,6 +24,7 @@
     "jsonwebtoken": "^8.5.1",
     "knex": "^0.16.3",
     "migrate": "^1.6.2",
+    "moment": "^2.24.0",
     "morgan": "^1.9.1",
     "pg": "^7.8.1",
     "postgrator": "^3.9.0",
