@@ -60,7 +60,6 @@ usersRouter
 usersRouter
   .route('/users/:user_id')
   .get((req, res, next) => {
-    console.log(req.params);
     const { user_id } = req.params;
     UsersService.getUserById(req.app.get('db'), user_id)
       .then(user => {
@@ -70,7 +69,7 @@ usersRouter
           });
         }
         res.status(200).json(user);
-        console.log(user);
+        // console.log(user);
         next();
       })
       .catch(next);

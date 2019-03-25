@@ -5,9 +5,12 @@ const path = require('path');
 const ShowdownService = require('./showdowns-service');
 const ShowdownRouter = express.Router();
 const jsonBodyParser = express.json();
+const { requireAuth } = require('../middleware/jwt-auth');
 
 ShowdownRouter
-  .post('/showdowns', jsonBodyParser, (req, res, next) => {
+  .route('/showdowns')
+  .all(requireAuth)
+  .post(jsonBodyParser, (req, res, next) => {
     const { user_baseball_team, opp_baseball_team } = req.body;  
     const fields = [ 'user_baseball_team', 'opp_baseball_team'];
 
@@ -17,12 +20,12 @@ ShowdownRouter
           error: `Missing '${field}' in request body`
         });
     }
+
     ShowdownService.getBaseballWins(req.app.get('db'), user_baseball_team, opp_baseball_team)
       .then(wins => {
         ShowdownService.getBaseballLosses(req.app.get('db'), user_baseball_team, opp_baseball_team)
           .then(losses => {
             const wins_baseball = ShowdownService.getWinsInt(wins, opp_baseball_team);
-            console.log(wins_baseball);
             const losses_baseball = ShowdownService.getLossInt(losses, opp_baseball_team);
             const newShowdown = {
               user_total_wins: wins_baseball,
@@ -33,8 +36,8 @@ ShowdownRouter
               losses_baseball: losses_baseball,
               date_created: 'now()',
             };
-
-            newShowdown.user_pin = 1;
+            console.log(req.user);
+            newShowdown.user_pin = 7;
             
             ShowdownService.insertShowdown(req.app.get('db'), newShowdown)
               .then(showdown => {
@@ -66,7 +69,6 @@ ShowdownRouter
           });
         }
         res.status(200).json(showdown);
-        console.log(showdown);
         next();
       })
       .catch(next);
@@ -93,7 +95,6 @@ ShowdownRouter
           });
         }
         res.status(200).json(showdown);
-        console.log(showdown);
         next();
       })
       .catch(next);
