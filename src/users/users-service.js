@@ -32,6 +32,13 @@ const UsersService = {
       .then(([user]) => user);
   },
 
+  editUser(db, id, editedUser) {
+    console.log('edit running');
+    return db('cities_users')
+      .where( {id} )
+      .update(editedUser);
+  },
+
   validatePassword(password) {
     if (password.length < 8) {
       return 'Password be 8 characters or more';

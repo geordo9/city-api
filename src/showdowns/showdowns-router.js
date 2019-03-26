@@ -79,8 +79,9 @@ ShowdownRouter
       req.app.get('db'),
       req.params.showdown_id
     )
-      .then(() => {
-        res.status(204).end();
+      .then((resjson) => {
+        console.log(resjson);
+        res.status(200).json(resjson);
       })
       .catch(next);
   });

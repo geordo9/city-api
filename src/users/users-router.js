@@ -69,10 +69,32 @@ usersRouter
           });
         }
         res.status(200).json(user);
-        // console.log(user);
+        console.log(user);
         next();
       })
       .catch(next);
+  })
+  .patch(jsonBodyParser, (req, res, next) => {
+    const { user_id } = req.params;
+    const { favorite_city, favorite_baseball } = req.body;
+    const editedUser = { 
+      favorite_city, 
+      favorite_baseball,
+      date_modified: 'now()',
+    };
+
+    const fields = ['favorite_city', 'favorite_baseball'];
+    for (const field of fields) {
+      if (!req.body[field])
+        return res.status(400).json({
+          error: `Missing '${field}' in request body`
+        });
+    }
+
+    UsersService.editUser(req.app.get('db'), user_id, editedUser)
+      .then(user => {
+        res.status(200).json(user);
+      }).catch(next);
   });
 
 module.exports = usersRouter;
