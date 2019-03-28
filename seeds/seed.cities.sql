@@ -1,4 +1,4 @@
--- psql -U postgres -d cities -f seeds/seed.cities.sql
+-- psql -U cexkkvvjyiozsa -d cities -f seeds/seed.cities.sql
 
 TRUNCATE cities, baseball_teams, baseball_playoffs, cities_users, showdowns;
 
