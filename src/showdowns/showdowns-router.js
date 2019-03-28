@@ -43,7 +43,7 @@ ShowdownRouter
             ShowdownService.insertShowdown(req.app.get('db'), newShowdown)
               .then(showdown => {
                 res.status(201)
-                  .location(path.posix.join(req.originalUrl, `/1/${showdown.id}`))
+                  .location(path.posix.join(req.originalUrl, `/${showdown.id}`))
                   .json(showdown);
               });
           });
