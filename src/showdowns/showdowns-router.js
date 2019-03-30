@@ -12,7 +12,6 @@ ShowdownRouter
   .all(requireAuth)
   .post(jsonBodyParser, (req, res, next) => {
     const { user_baseball_team, opp_baseball_team } = req.body; 
-    console.log(user_baseball_team); 
     const fields = [ 'user_baseball_team', 'opp_baseball_team'];
 
     for (const field of fields){
@@ -37,7 +36,7 @@ ShowdownRouter
               losses_baseball: losses_baseball,
               date_created: 'now()',
             };
-            console.log(req.user);
+
             newShowdown.user_pin = req.user.id;
             
             ShowdownService.insertShowdown(req.app.get('db'), newShowdown)
@@ -80,7 +79,6 @@ ShowdownRouter
       req.params.showdown_id
     )
       .then((resjson) => {
-        console.log(resjson);
         res.status(200).json(resjson);
       })
       .catch(next);

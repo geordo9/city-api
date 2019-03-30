@@ -27,7 +27,6 @@ usersRouter
 
     UsersService.hasUserWithUsername(req.app.get('db'), user_name)
       .then(hasUsername => {
-        // console.log(hasUsername)
         if(hasUsername){
           return res.status(400).json({ error: 'Username already taken' });
         }
@@ -69,7 +68,6 @@ usersRouter
           });
         }
         res.status(200).json(user);
-        console.log(user);
         next();
       })
       .catch(next);

@@ -30,7 +30,6 @@ const ShowdownServices = {
       .first();
   },
   insertShowdown(db, newShowdown) {
-    console.log('insert running');
     return db
       .insert(newShowdown)
       .into('showdowns')

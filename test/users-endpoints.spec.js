@@ -68,8 +68,6 @@ describe('Users Endpoints', function() {
           password: '*'.repeat(73),
           favorite_city: 1
         };
-        // console.log(userLongPassword)
-        // console.log(userLongPassword.password.length)
         return supertest(app)
           .post('/users')
           .send(userLongPassword)

@@ -24,7 +24,6 @@ const UsersService = {
   },
 
   insertUser(db, newUser) {
-    console.log('insert running');
     return db
       .insert(newUser)
       .into('cities_users')
@@ -33,7 +32,6 @@ const UsersService = {
   },
 
   editUser(db, id, editedUser) {
-    console.log('edit running');
     return db('cities_users')
       .where( {id} )
       .update(editedUser);

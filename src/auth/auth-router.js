@@ -8,7 +8,7 @@ const authRouter = express.Router();
 const bodyParser = express.json();
 
 authRouter.post('/auth/login',bodyParser, (req, res, next) => {
-  console.log('logging in!');
+
   const { user_name, password } = req.body;
   const loginUser = { user_name, password };
 
@@ -23,7 +23,6 @@ authRouter.post('/auth/login',bodyParser, (req, res, next) => {
   AuthService
     .getUserWithUsername(req.app.get('db'), loginUser.user_name)
     .then(dbUser => {
-      console.log('finding user!');
       if(!dbUser){
         return res.status(400).json({
           error: 'Incorrect user_name or password'

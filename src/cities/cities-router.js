@@ -14,7 +14,6 @@ citiesRouter
 citiesRouter
   .route('/city/:city_id')
   .get((req, res, next) => {
-    console.log(req.params);
     const { city_id } = req.params;
     CitiesService.getCityById(req.app.get('db'), city_id)
       .then(city => {
@@ -24,7 +23,6 @@ citiesRouter
           });
         }
         res.status(200).json(city);
-        console.log(city);
         next();
       })
       .catch(next);
@@ -49,7 +47,6 @@ citiesRouter
           });
         }
         res.status(200).json(team);
-        console.log(team);
         next();
       })
       .catch(next);
@@ -74,7 +71,6 @@ citiesRouter
           });
         }
         res.status(200).json(team);
-        console.log(team);
         next();
       })
       .catch(next);
